@@ -20,6 +20,9 @@ dependencies:
   '@astrojs/tailwind':
     specifier: ^5.1.0
     version: 5.1.0(astro@4.4.9)(tailwindcss@3.4.1)
+  '@iconify-json/simple-icons':
+    specifier: ^1.1.93
+    version: 1.1.93
   '@iconify/json':
     specifier: ^2.2.188
     version: 2.2.188
@@ -680,6 +683,12 @@ packages:
     dependencies:
       '@iconify/types': 2.0.0
     dev: true
+
+  /@iconify-json/simple-icons@1.1.93:
+    resolution: {integrity: sha512-rPsEIJlNZQJekCy5Qj6QHhrCJyCF0UAAql5PEz+B8iNvEn/BDyqq2zgpfxsU2KQn2NdCui8xnjZiuyTc5nwIqw==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: false
 
   /@iconify/json@2.2.188:
     resolution: {integrity: sha512-gsJwZ60Vb5IrtjYu+Al4qMaML9ZKUnop6Gi0537ZcA6nEhe3Nb58WH4c6b1+mXOHwOkFlLA8AFBXJUHY5nKMdA==}

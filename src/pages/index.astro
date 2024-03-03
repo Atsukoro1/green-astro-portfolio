@@ -1,55 +1,24 @@
 ---
-import { getCollection } from 'astro:content';
-
-import PostCard from '../components/PostCard.astro';
-import Button from '../components/Button.astro';
-import Badge from '../components/Badge.astro';
+import MainPageHeader from '../components/MainPageHeader.astro';
 import Page from '../components/Page.astro';
-
-const posts = (await getCollection('blog')).sort(
-	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
-);
+import PostList from '../components/PostList.astro';
+import ProjectList from '../components/ProjectList.astro';
 ---
 
 <Page title='Jakub Dorničák / Homepage' description='Homepage of my portfolio'>
 	<main>
-		<header class="text-center">
-			<div class="flex flex-col gap-5">
-				<h1 class="text-lime-500 text-7xl font-bold">Jakub Dorničák</h1>
-				<Badge text='Fullstack Web developer, Cybersecurity enthusiast & Aspiring sys-admin' />
-				<p class="text-gray-500 table w-[550px] text-center mx-auto">
-					I am an <b>18 year old student and technology enthusiast</b>. I have built my knowledge and skills primarily in the field of
+		<MainPageHeader />
 
-					<b>Web development</b> where I have been developing for several years
-					
-					websites and applications for all kinds of Eshops and freelancers.
-					Outside of web development, I have been working on UNIX systems and their administration,
-					
-					<b>Cybersecurity</b> (HackTheBox, TryHackMe challenges) and also some networking.
-					My interests outside of IT mainly include my dog 🐕, strategy computer games and family.
-				</p>
-
-				<div>
-					<h3>Available on:</h3>
-					<div class="flex flex-row gap-2 mx-auto w-fit">
-						<Button icon="mdi:linkedin" />
-						<Button icon="mdi:github" />
-					</div>
-				</div>
-			</div>
-		</header>
-
-		<section>
-			<h2>My projects</h2>
+		<section class="flex flex-col gap-3.5 mt-8 w-fit mx-auto">
+			<h2 class="text-3xl text-lime-400">My projects</h2>
+			<ProjectList />
+			<a class="text-lime-400 underline" href="/blog">and more...</a>
 		</section>
 
-		<section>
-			<h2>Blog posts</h2>
-			<div class="grid grid-cols-2 gap-5">
-				{posts.map((post) => (
-					<PostCard {...post} />
-				))}
-			</div>
+		<section class="flex flex-col gap-3.5 mt-8 w-fit mx-auto">
+			<h2 class="text-3xl text-lime-400">Blog posts</h2>
+			<PostList />
+			<a class="text-lime-400 underline" href="/projects">and more...</a>
 		</section>
 	</main>
 </Page>

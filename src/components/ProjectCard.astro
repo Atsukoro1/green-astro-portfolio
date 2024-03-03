@@ -18,17 +18,17 @@ type Props = {
 
 const {
     slug,
-    data: { heroImage, title, pubDate },
+    data: { heroImage, title, pubDate, description },
 } = Astro.props as Props;
 ---
 
 <div class="flex flex-col gap-4">
     <a href={`/blog/${slug}/`}>
         <img class="rounded-lg" width={300} height={150} src={heroImage} alt="" />
-
         <div class="mt-2">
             <h4 class="title">{title}</h4>
-            <p class="text-gray-600">
+            <h6 class="text-gray-400">{description}</h6>
+            <p class="text-gray-700">
                 <FormattedDate date={pubDate} />
             </p>
         </div>

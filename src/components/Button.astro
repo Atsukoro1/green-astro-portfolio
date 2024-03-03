@@ -33,7 +33,7 @@ export interface Props
 const { intent = "primary", size = "medium", href = "#" } = Astro.props;
 ---
 
-<a href={href}>
+<a target="_blank" href={href}>
     <button {...Astro.props} class={button({ intent, size })}>
         {Astro.props.icon && <Icon size={22} name={Astro.props.icon} />}
         <slot />

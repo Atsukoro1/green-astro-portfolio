@@ -11,14 +11,11 @@
 	font-display: swap;
 }
 @font-face {
-	font-family: 'Atkinson';
-	src: url('/fonts/atkinson-bold.woff') format('woff');
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
+    font-family: SCP;
+    src: url(/fonts/SourceCodeVariable.ttf);
 }
 body {
-	font-family: 'Atkinson', sans-serif;
+	font-family: 'SCP', sans-serif;
 	margin: 0;
 	padding: 0;
 }

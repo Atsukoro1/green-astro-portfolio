@@ -1,0 +1,12 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+type Props = {
+    text: string;
+} & HTMLAttributes<'span'>;
+---
+
+<span class="border-2 border-lime-400 py-2 px-3 rounded-full bg-lime-400/15 text-lime-400">
+    {Astro.props.text}
+</span>
+

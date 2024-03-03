@@ -6,6 +6,8 @@ import '../styles/global.css';
 interface Props {
 	title: string;
 	description: string;
+	keywords?: string;
+	author?: string;
 	image?: string;
 }
 
@@ -38,6 +40,10 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image, Astro.url)} />
+
+<!--Add keywords & author -->
+<meta name="keywords" content={Astro.props.keywords} />
+<meta name="author" content={Astro.props.author} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />

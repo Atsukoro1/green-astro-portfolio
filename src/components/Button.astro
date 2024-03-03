@@ -1,0 +1,39 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { cva, type VariantProps } from "class-variance-authority";
+import { Icon } from "astro-icon/components";
+
+const button = cva("flex flex-row gap-2 rounded-lg hover:bg-opacity-70", {
+  variants: {
+    intent: {
+      primary: [
+        "bg-lime-500",
+        "text-black",
+      ],
+      secondary: [
+        "bg-white",
+        "text-black",
+
+      ],
+    },
+    size: {
+      small: ["text-sm", "py-1", "px-2"],
+      medium: ["text-base", "py-2", "px-4"],
+    },
+  },
+  compoundVariants: [{ intent: "primary", size: "medium", class: "uppercase" }],
+});
+
+export interface Props
+  extends HTMLAttributes<"button">,
+    VariantProps<typeof button> {
+        icon?: string;
+    }
+
+const { intent = "primary", size = "medium" } = Astro.props;
+---
+
+<button class={button({ intent, size })}>
+    {Astro.props.icon && <Icon size={22} name={Astro.props.icon} />}
+    <slot />
+</button>

@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 
-import FormattedDate from '../components/FormattedDate.astro';
+import PostCard from '../components/PostCard.astro';
 import Button from '../components/Button.astro';
 import Badge from '../components/Badge.astro';
 import Page from '../components/Page.astro';
@@ -13,18 +13,29 @@ const posts = (await getCollection('blog')).sort(
 
 <Page title='Jakub Dorničák / Homepage' description='Homepage of my portfolio'>
 	<main>
-		<header>
-			<h1 class="text-lime-500 text-7xl font-bold">Jakub Dorničák</h1>
-			<Badge text='Fullstack Web developer & Cybersecurity enthusiast' />
-			<div>
-				<Button icon='mdi:linkedin' intent="primary">Button 1</Button>
-				<Button intent="secondary">Button 2</Button>
-			</div>
+		<header class="text-center">
+			<div class="flex flex-col gap-5">
+				<h1 class="text-lime-500 text-7xl font-bold">Jakub Dorničák</h1>
+				<Badge text='Fullstack Web developer, Cybersecurity enthusiast & Aspiring sys-admin' />
+				<p class="text-gray-500 table w-[550px] text-center mx-auto">
+					I am an <b>18 year old student and technology enthusiast</b>. I have built my knowledge and skills primarily in the field of
 
-			<h3>Available on:</h3>
-			<div class="flex flex-row gap-2">
-				<Button icon="mdi:linkedin" />
-				<Button icon="mdi:github" />
+					<b>Web development</b> where I have been developing for several years
+					
+					websites and applications for all kinds of Eshops and freelancers.
+					Outside of web development, I have been working on UNIX systems and their administration,
+					
+					<b>Cybersecurity</b> (HackTheBox, TryHackMe challenges) and also some networking.
+					My interests outside of IT mainly include my dog 🐕, strategy computer games and family.
+				</p>
+
+				<div>
+					<h3>Available on:</h3>
+					<div class="flex flex-row gap-2 mx-auto w-fit">
+						<Button icon="mdi:linkedin" />
+						<Button icon="mdi:github" />
+					</div>
+				</div>
 			</div>
 		</header>
 
@@ -34,21 +45,11 @@ const posts = (await getCollection('blog')).sort(
 
 		<section>
 			<h2>Blog posts</h2>
-			<ul>
-				{
-					posts.map((post) => (
-						<li>
-							<a href={`/blog/${post.slug}/`}>
-								<img width={300} height={150} src={post.data.heroImage} alt="" />
-								<h4 class="title">{post.data.title}</h4>
-								<p class="date">
-									<FormattedDate date={post.data.pubDate} />
-								</p>
-							</a>
-						</li>
-					))
-				}
-			</ul>
+			<div class="grid grid-cols-2 gap-5">
+				{posts.map((post) => (
+					<PostCard {...post} />
+				))}
+			</div>
 		</section>
 	</main>
 </Page>

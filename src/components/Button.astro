@@ -13,7 +13,6 @@ const button = cva("flex flex-row gap-2 rounded-lg hover:bg-opacity-70", {
       secondary: [
         "bg-white",
         "text-black",
-
       ],
     },
     size: {
@@ -28,12 +27,15 @@ export interface Props
   extends HTMLAttributes<"button">,
     VariantProps<typeof button> {
         icon?: string;
+        href?: string;
     }
 
-const { intent = "primary", size = "medium" } = Astro.props;
+const { intent = "primary", size = "medium", href = "#" } = Astro.props;
 ---
 
-<button class={button({ intent, size })}>
-    {Astro.props.icon && <Icon size={22} name={Astro.props.icon} />}
-    <slot />
-</button>
+<a href={href}>
+    <button {...Astro.props} class={button({ intent, size })}>
+        {Astro.props.icon && <Icon size={22} name={Astro.props.icon} />}
+        <slot />
+    </button>
+</a>

@@ -1,32 +1,54 @@
 ---
-import Badge from './Badge.astro';
-import Button from './Button.astro';
+import Badge from "./Badge.astro";
+import Button from "./Button.astro";
 ---
 
-<header class="text-center w-[700px]">
-    <div class="flex flex-col gap-5">
-        <h1 class="text-lime-500 text-7xl font-bold">Jakub Dorničák</h1>
-        <Badge text='Fullstack Web developer, Cybersecurity enthusiast & Aspiring sys-admin' />
-        <p class="text-gray-500 table w-fit mx-auto text-justify">
-            I am an <b>18 year old student and technology enthusiast</b>. I have built my knowledge and skills primarily in the field of
+<header class="text-center w-[300px] sm:w-[700px]">
+  <div class="flex flex-col gap-5">
+    <h1 class="text-lime-500 text-4xl sm:text-7xl font-bold">Jakub Dorničák</h1>
+    <Badge
+      text="Fullstack Web developer, Cybersecurity enthusiast & Aspiring sys-admin"
+    />
+    <p class="text-gray-500 table w-fit mx-auto text-justify">
+      I am an <b>18 year old student and technology enthusiast</b>. I have built
+      my knowledge and skills primarily in the field of
 
-            <b>Web development</b> where I have been developing for several years
-            
-            websites and applications for all kinds of Eshops and freelancers.
-            Outside of web development, I have been working on UNIX systems and their administration ⚙️,
-            
-            <b>Cybersecurity</b> (HackTheBox, TryHackMe challenges) and also some networking.
-            My interests outside of IT mainly include my dog 🐕 and learning DJ'ing 🎉.
-        </p>
+      <b>Web development</b> where I have been developing for several years websites
+      and applications for all kinds of Eshops and freelancers. Outside of web development,
+      I have been working on UNIX systems and their administration ⚙️,
 
-        <div>
-            <h3>Available on:</h3>
-            <div class="flex flex-row gap-2 mx-auto w-fit">
-                <Button href="https://www.linkedin.com/in/jakub-dorni%C4%8D%C3%A1k-b6953423b/" icon="mdi:linkedin" />
-                <Button href="https://github.com/Atsukoro1" icon="mdi:github" />
-                <Button href="https://app.hackthebox.com/users/692313" icon="simple-icons:hackthebox" />
-                <Button href="mailto:dornicakkuba@gmail.com" icon="simple-icons:gmail" />
-            </div>
-        </div>
+      <b>Cybersecurity</b> (HackTheBox, TryHackMe challenges) and also some networking.
+      My interests outside of IT mainly include my dog 🐕 and learning DJ'ing 🎉.
+    </p>
+
+    <div>
+      <h3>Available on:</h3>
+      <div class="flex flex-row gap-2 mx-auto w-fit">
+        <Button
+          href="https://www.linkedin.com/in/jakub-dorni%C4%8D%C3%A1k-b6953423b/"
+          icon="mdi:linkedin"
+          iconOnly
+        >
+          Linkedin
+        </Button>
+        <Button iconOnly href="https://github.com/Atsukoro1" icon="mdi:github">
+          Github
+        </Button>
+        <Button
+          href="https://app.hackthebox.com/users/692313"
+          icon="simple-icons:hackthebox"
+          iconOnly
+        >
+          HackTheBox
+        </Button>
+        <Button
+          iconOnly
+          href="mailto:dornicakkuba@gmail.com"
+          icon="simple-icons:gmail"
+        >
+          Gmail
+        </Button>
+      </div>
     </div>
+  </div>
 </header>

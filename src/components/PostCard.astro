@@ -1,36 +1,44 @@
 ---
-import type { HTMLAttributes } from 'astro/types';
-import FormattedDate from './FormattedDate.astro';
+import type { HTMLAttributes } from "astro/types";
+import FormattedDate from "./FormattedDate.astro";
+import { Image } from "astro:assets";
 
 type Props = {
-    id: string;
-    slug: string;
-    body: string;
-    collection: string;
-    data: {
-        title: string;
-        description: string;
-        pubDate: Date;
-        updatedDate?: Date | undefined;
-        heroImage?: string | undefined;
-    };
-} & HTMLAttributes<'div'>;
+  id: string;
+  slug: string;
+  body: string;
+  collection: string;
+  data: {
+    title: string;
+    description: string;
+    pubDate: Date;
+    updatedDate?: Date | undefined;
+    heroImage?: string | undefined;
+  };
+} & HTMLAttributes<"div">;
 
 const {
-    slug,
-    data: { heroImage, title, pubDate },
+  slug,
+  data: { heroImage, title, pubDate },
 } = Astro.props as Props;
 ---
 
 <div class="flex flex-col gap-4">
-    <a href={`/blog/${slug}/`}>
-        <img class="rounded-lg" width={300} height={150} src={heroImage} alt="" />
+  <a href={`/blog/${slug}/`}>
+    <Image
+      class="rounded-lg w-[300px] h-[150px] object-cover"
+      width={300}
+      height={150}
+      src={heroImage ?? ""}
+      loading="eager"
+      alt=""
+    />
 
-        <div class="mt-2">
-            <h4 class="title">{title}</h4>
-            <p class="text-gray-600">
-                <FormattedDate date={pubDate} />
-            </p>
-        </div>
-    </a>
+    <div class="mt-2">
+      <h4 class="title">{title}</h4>
+      <p class="text-gray-600">
+        <FormattedDate date={pubDate} />
+      </p>
+    </div>
+  </a>
 </div>

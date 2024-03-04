@@ -1,31 +1,31 @@
 ---
-import type { HTMLAttributes } from 'astro/types';
-import BaseHead from './BaseHead.astro';
+import type { HTMLAttributes } from "astro/types";
+import BaseHead from "./BaseHead.astro";
 
 type Props = {
-    title: string;
-    description: string;
-    keywords?: string;
-    author?: string;
-    children?: any;
-} & HTMLAttributes<'html'>;
+  title: string;
+  description: string;
+  keywords?: string;
+  author?: string;
+  children?: any;
+} & HTMLAttributes<"html">;
 
 const { title, description, keywords, author } = Astro.props;
 ---
 
 <html lang="en">
-	<head>
-		<BaseHead 
-            title={title} 
-            description={description} 
-            keywords={keywords} 
-            author={author} 
-        />
-	</head>
+  <head>
+    <BaseHead
+      title={title}
+      description={description}
+      keywords={keywords}
+      author={author}
+    />
+  </head>
 
-	<body class="bg-black text-white w-fit mx-auto py-12">
-        <astro>
-            <slot/>
-        </astro>
-    </body>
+  <body class="bg-black text-white w-fit mx-auto py-12">
+    <astro>
+      <slot />
+    </astro>
+  </body>
 </html>

@@ -1,0 +1,16 @@
+---
+import { twMerge } from "tailwind-merge";
+---
+
+<div
+  class={twMerge([
+    "prose-headings:text-lime-400",
+    "prose-h1:text-lime-400 prose-h1:text-4xl",
+    "prose-h2:text-lime-400 prose-h2:text-3xl",
+    "prose-h3:text-lime-400 prose-h3:text-2xl",
+    "prose-h4:text-lime-400 prose-h4:text-xl",
+    "prose-a:text-lime-400 prose-a:underline prose-a:hover:no-underline",
+  ])}
+>
+  <slot />
+</div>

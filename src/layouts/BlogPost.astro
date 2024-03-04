@@ -4,8 +4,7 @@ import type { CollectionEntry } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
 import Page from "../components/Page.astro";
 import { Icon } from "astro-icon/components";
-
-import "../styles/content.css";
+import Content from "../components/Content.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -13,47 +12,48 @@ const { title, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
 <Page title="Blog post" description="">
-	<article>
-		<a
-			href="/"
-			class="text-lime-400 flex flex-row text-xl align-middle justify-center items-center mb-4"
-		>
-			<Icon size={35} name="mdi:arrow-back" />
-			<p>Back to homepage</p>
-		</a>
+  <article>
+    <a
+      href="/"
+      class="text-lime-400 flex flex-row text-xl align-middle justify-center items-center mb-4"
+    >
+      <Icon size={35} name="mdi:arrow-back" />
+      <p>Back to homepage</p>
+    </a>
 
-		<div class="w-fit mx-auto">
-			{
-				heroImage && (
-					<img
-						width={800}
-						height={310}
-						src={heroImage}
-						alt=""
-						class="rounded-xl"
-					/>
-				)
-			}
-		</div>
+    <div class="mx-auto w-fit">
+      {
+        heroImage && (
+          <img
+            width={800}
+            height={310}
+            src={heroImage}
+            alt=""
+            class="object-cover w-[550px] h-[310px] rounded-lg"
+          />
+        )
+      }
+    </div>
 
-		<div class="p-24">
-			<div class="title">
-				<div class="date">
-					<FormattedDate date={pubDate} />
-					{
-						updatedDate && (
-							<div class="last-updated-on">
-								Last updated on{" "}
-								<FormattedDate date={updatedDate} />
-							</div>
-						)
-					}
-				</div>
-				<h1 class="text-lime-400 text-4xl">{title}</h1>
-				<hr class="my-5" />
-			</div>
+    <div class="p-24 w-[320px] sm:w-fit mx-auto">
+      <div class="title">
+        <div class="date">
+          <FormattedDate date={pubDate} />
+          {
+            updatedDate && (
+              <div class="last-updated-on">
+                Last updated on <FormattedDate date={updatedDate} />
+              </div>
+            )
+          }
+        </div>
+        <h1 class="text-lime-400 text-4xl">{title}</h1>
+        <hr class="my-5" />
+      </div>
 
-			<slot />
-		</div>
-	</article>
+      <Content>
+        <slot />
+      </Content>
+    </div>
+  </article>
 </Page>

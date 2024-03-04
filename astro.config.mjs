@@ -5,8 +5,11 @@ import tailwind from "@astrojs/tailwind";
 
 import icon from "astro-icon";
 
-// https://astro.build/config
 export default defineConfig({
-  site: 'https://example.com',
-  integrations: [mdx(), sitemap(), tailwind(), icon()]
+  site: 'https://dornicakjakub.cz',
+  server: {
+    port: 8080,
+    host: '0.0.0.0'
+  },
+  integrations: [mdx(), sitemap(), tailwind(), icon()],
 });

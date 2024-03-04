@@ -12,7 +12,7 @@ const { title, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
 <Page title="Blog post" description="">
-  <article>
+  <article class="sm:w-fit w-[300px]">
     <a
       href="/"
       class="text-lime-400 flex flex-row text-xl align-middle justify-center items-center mb-4"
@@ -35,7 +35,7 @@ const { title, pubDate, updatedDate, heroImage } = Astro.props;
       }
     </div>
 
-    <div class="p-24 w-[320px] sm:w-fit mx-auto">
+    <div class="sm:p-24 mt-5 w-[320px] sm:w-fit mx-auto">
       <div class="title">
         <div class="date">
           <FormattedDate date={pubDate} />

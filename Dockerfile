@@ -4,23 +4,20 @@ FROM node:latest
 # Create app directory
 WORKDIR /usr/src/app
 
-# Install pnpm
-RUN npm install -g pnpm
-
 # Copy package.json and package-lock.json (if you have one)
-COPY package.json pnpm-lock.yaml ./
+COPY package.json ./
 
 # Install app dependencies
-RUN pnpm install
+RUN npm install
 
 # Copy app code
 COPY . .
 
 # Build the app
-RUN pnpm run build
+RUN npm run build
 
 # Expose the port that your app runs on
-EXPOSE 4321
+EXPOSE 8080
 
 # Start the app
-CMD [ "pnpm", "preview" ]
+CMD [ "npm", "run", "preview" ]

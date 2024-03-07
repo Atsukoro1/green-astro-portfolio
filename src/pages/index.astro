@@ -1,24 +1,24 @@
 ---
-import MainPageHeader from '../components/MainPageHeader.astro';
-import Page from '../components/Page.astro';
-import PostList from '../components/PostList.astro';
-import ProjectList from '../components/ProjectList.astro';
+import MainPageHeader from "../components/MainPageHeader.astro";
+import Page from "../components/Page.astro";
+import PostList from "../components/PostList.astro";
+import ProjectList from "../components/ProjectList.astro";
 ---
 
-<Page title='Jakub Dorničák / Homepage' description='Homepage of my portfolio'>
-	<main>
-		<MainPageHeader />
+<Page title="Jakub Dorničák / Homepage" description="Homepage of my portfolio">
+  <main>
+    <MainPageHeader />
 
-		<section class="flex flex-col gap-3.5 mt-8 w-fit mx-auto">
-			<h2 class="text-3xl text-lime-400">My projects</h2>
-			<ProjectList />
-			<a class="text-lime-400 underline" href="/blog">and more...</a>
-		</section>
+    <section class="flex flex-col gap-3.5 mt-8 w-fit mx-auto">
+      <h2 class="text-3xl text-lime-400">My projects</h2>
+      <ProjectList />
+      <a class="text-lime-400 underline" href="/blog">and more...</a>
+    </section>
 
-		<section class="flex flex-col gap-3.5 mt-8 w-fit mx-auto">
-			<h2 class="text-3xl text-lime-400">Blog posts</h2>
-			<PostList />
-			<a class="text-lime-400 underline" href="/projects">and more...</a>
-		</section>
-	</main>
+    <section class="flex flex-col gap-3.5 mt-8 w-fit mx-auto">
+      <h2 class="text-3xl text-lime-400">Blog posts</h2>
+      <PostList />
+      <a class="text-lime-400 underline" href="/projects">and more...</a>
+    </section>
+  </main>
 </Page>
